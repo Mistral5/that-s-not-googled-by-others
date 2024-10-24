@@ -15,5 +15,5 @@ set(SOURCES
     tape_generator.cpp
 )
 
-add_library(${PROJECT_NAME}Lib SHARED ${SOURCES} ${INCLUDES})
+add_library(${PROJECT_NAME}Lib STATIC ${SOURCES} ${INCLUDES})
 target_link_libraries(${PROJECT_NAME}Lib PUBLIC nlohmann_json::nlohmann_json)

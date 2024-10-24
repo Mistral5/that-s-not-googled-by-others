@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.24)
 
 project(TapeSort
     LANGUAGES CXX
-    VERSION 1.0.0
-    HOMEPAGE_URL "https://github.com/Mistral5/"
+    VERSION 1.0.1
+    HOMEPAGE_URL "https://github.com/Mistral5/thats-not-googled-by-others"
 )
+
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 

@@ -14,8 +14,6 @@ namespace tape_sort
     {
     public:
         Tape(const std::string&, std::ios_base::openmode = std::ios::in | std::ios::out);
-        Tape(const Tape&);
-        Tape& operator=(const Tape&);
         Tape(Tape&&) noexcept;
         Tape& operator=(Tape&&) noexcept;
         ~Tape();

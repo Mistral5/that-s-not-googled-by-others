@@ -24,7 +24,7 @@
 
 ```
 mkdir build && cd build
-cmake ..  && cmake --build . -j
+cmake .. && cmake --build . -j
 ```
 
 <a id="run"></a>

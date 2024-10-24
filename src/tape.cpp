@@ -8,10 +8,6 @@ tape_sort::Tape::Tape(const std::string& file_name,
         throw AssociatedFileException{ file_name };
 }
 
-tape_sort::Tape::Tape(const Tape&) = delete;
-
-tape_sort::Tape& tape_sort::Tape::operator=(const Tape&) = delete;
-
 tape_sort::Tape::Tape(Tape&&) noexcept = default;
 
 tape_sort::Tape& tape_sort::Tape::operator=(Tape&&) noexcept = default;
