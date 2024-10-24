@@ -1,0 +1,14 @@
+{
+    "tape_delays": {
+        "unit": "millisecond",
+        "item_write": 0,
+        "item_read": 0,
+        "rewind": 0,
+        "step_shift": 0
+    },
+    "driver_settings": {
+        "max_elem_number": 2048,
+        "temp_file_dir_name": "tmp/",
+        "temp_file_format": ".txt"
+    }
+}
