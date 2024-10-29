@@ -7,19 +7,17 @@
 
 #include "config_reader.hpp"
 
-namespace tape_sort
-{
-    class TapeGenerator
-    {
-    public:
-        TapeGenerator(const std::string&);
-        ~TapeGenerator();
+namespace tape_sort {
+class TapeGenerator {
+ public:
+  TapeGenerator(const std::string&);
+  ~TapeGenerator();
 
-        void Generate(uint64_t);
+  void Generate(uint64_t);
 
-    private:
-        std::ofstream stream_;
-    };
-} // namespace tape_sort
+ private:
+  std::ofstream stream_;
+};
+}  // namespace tape_sort
 
-#endif // TAPESORT_SRC_GENERATOR_HPP
+#endif  // TAPESORT_SRC_GENERATOR_HPP
