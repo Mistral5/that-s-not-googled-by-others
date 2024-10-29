@@ -23,6 +23,6 @@ namespace tape_sort
         static inline uint64_t rewind_count_{};
         static inline uint64_t step_shift_count_{};
     };
-}
+} // namespace tape_sort
 
 #endif // TAPESORT_SRC_DRIVER_PERF_STATS_HPP

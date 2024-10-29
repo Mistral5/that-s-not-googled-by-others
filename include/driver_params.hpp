@@ -32,6 +32,6 @@ namespace tape_sort
         std::string temp_file_dir_name;
         std::string temp_file_format;
     };
-}
+} // namespace tape_sort
 
 #endif // TAPESORT_SRC_DRIVER_PARAMS_HPP

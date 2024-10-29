@@ -1,12 +1,11 @@
-#ifndef TAPESORT_SRC_TAPE_IMPL_HPP
-#define TAPESORT_SRC_TAPE_IMPL_HPP
+#ifndef TAPESORT_SRC_TAPE_HPP
+#define TAPESORT_SRC_TAPE_HPP
 
 #include <cinttypes>
 #include <fstream>
 
 #include "config_reader.hpp"
 #include "i_tape.hpp"
-#include "utils.hpp"
 
 namespace tape_sort
 {
@@ -14,6 +13,7 @@ namespace tape_sort
     {
     public:
         Tape(const std::string&, std::ios_base::openmode = std::ios::in | std::ios::out);
+
         Tape(Tape&&) noexcept;
         Tape& operator=(Tape&&) noexcept;
         ~Tape();
@@ -27,6 +27,12 @@ namespace tape_sort
     private:
         std::fstream stream_;
     };
-}
 
-#endif // TAPESORT_SRC_TAPE_IMPL_HPP
+    class TapeFactory : public ITapeFactory
+    {
+    public:
+        std::shared_ptr<ITape> Create(const std::string&, std::ios_base::openmode) override;
+    };
+} // namespace tape_sort
+
+#endif // TAPESORT_SRC_TAPE_HPP

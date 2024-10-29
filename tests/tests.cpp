@@ -1,11 +1,13 @@
-#include <gtest/gtest.h>
 #include <vector>
 
+#include <gtest/gtest.h>
 #include <nlohmann/json.hpp>
 
 #include "config_reader.hpp"
 #include "driver.hpp"
 #include "driver_params.hpp"
+#include "i_tape.hpp"
+#include "tape.hpp"
 #include "tape_generator.hpp"
 
 class TestClass
@@ -37,19 +39,22 @@ TEST(tape_sort, default_case) // num_test > max_elem_number
     size_t num_test{ 10000 };
     std::string input_tape_name{ "test_" + std::to_string(num_test) + ".txt" };
     std::string output_tape_name{ "test_" + std::to_string(num_test) + "_out.txt" };
+
     {
         tape_sort::TapeGenerator gen(input_tape_name);
         gen.Generate(num_test);
     }
+
     std::vector<int32_t> input_data(std::move(TestClass::ReadTape(input_tape_name)));
     std::sort(input_data.begin(), input_data.end());
-
     // Act
     {
         tape_sort::Tape input_tape(input_tape_name);
         tape_sort::Tape output_tape(output_tape_name, std::ios::in | std::ios::out | std::ios::trunc);
 
-        tape_sort::Driver tape_driver({});
+        tape_sort::TapeFactory factory;
+        tape_sort::Driver tape_driver({}, factory);
+
         tape_driver.Sort(output_tape, input_tape);
     }
 
@@ -75,7 +80,8 @@ TEST(tape_sort, corner_case) // INT32_MAX, INT32_MIN
         tape_sort::Tape input_tape(input_tape_name);
         tape_sort::Tape output_tape(output_tape_name, std::ios::trunc);
 
-        tape_sort::Driver tape_driver({});
+        tape_sort::TapeFactory factory;
+        tape_sort::Driver tape_driver({}, factory);
         tape_driver.Sort(output_tape, input_tape);
     }
 
@@ -104,7 +110,8 @@ TEST(tape_sort, short_tape_case) // num_test < max_elem_number
         tape_sort::Tape input_tape(input_tape_name);
         tape_sort::Tape output_tape(output_tape_name, std::ios::trunc);
 
-        tape_sort::Driver tape_driver({});
+        tape_sort::TapeFactory factory;
+        tape_sort::Driver tape_driver({}, factory);
         tape_driver.Sort(output_tape, input_tape);
     }
 
@@ -130,7 +137,8 @@ TEST(tape_sort, empty_tape_case)
         tape_sort::Tape input_tape(input_tape_name);
         tape_sort::Tape output_tape(output_tape_name, std::ios::trunc);
 
-        tape_sort::Driver tape_driver({});
+        tape_sort::TapeFactory factory;
+        tape_sort::Driver tape_driver({}, factory);
         tape_driver.Sort(output_tape, input_tape);
     }
 

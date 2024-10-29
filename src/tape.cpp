@@ -1,8 +1,7 @@
 #include "tape.hpp"
 
-tape_sort::Tape::Tape(const std::string& file_name,
-    std::ios_base::openmode mode)
-    : stream_(file_name, mode | std::ios::in | std::ios::out)
+tape_sort::Tape::Tape(const std::string& file_name, std::ios_base::openmode mode) :
+    stream_(file_name, mode | std::ios::in | std::ios::out)
 {
     if (!stream_.is_open())
         throw AssociatedFileException{ file_name };
@@ -48,4 +47,9 @@ bool tape_sort::Tape::good()
 {
     auto symbol = stream_.peek();
     return stream_.good() && symbol != '\n' && symbol != EOF;
+}
+
+std::shared_ptr<tape_sort::ITape> tape_sort::TapeFactory::Create(const std::string& file_name, std::ios_base::openmode mode)
+{
+    return std::shared_ptr<ITape>(std::make_shared<Tape>(file_name, mode));
 }

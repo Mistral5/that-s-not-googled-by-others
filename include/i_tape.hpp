@@ -4,14 +4,19 @@
 #include <cinttypes>
 #include <fstream>
 
-#include "utils.hpp"
-
 namespace tape_sort
 {
+    enum TapePosition
+    {
+        kStart = 0,
+        kEnd = 2
+    };
+
     class ITape
     {
-    public:
+    protected:
         ITape() = default;
+    public:
         ITape(const ITape&) = delete;
         ITape& operator=(const ITape&) = delete;
         ITape(ITape&&) noexcept = default;
@@ -24,6 +29,13 @@ namespace tape_sort
         virtual void StepForward() = 0;
         virtual bool good() = 0;
     };
-}
+
+    class ITapeFactory
+    {
+    public:
+        virtual std::shared_ptr<ITape> Create(const std::string&, std::ios_base::openmode) = 0;
+        virtual ~ITapeFactory() {}
+    };
+} // namespace tape_sort
 
 #endif // TAPESORT_SRC_ITAPE_HPP

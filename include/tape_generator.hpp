@@ -6,7 +6,6 @@
 #include <random>
 
 #include "config_reader.hpp"
-#include "utils.hpp"
 
 namespace tape_sort
 {
@@ -21,6 +20,6 @@ namespace tape_sort
     private:
         std::ofstream stream_;
     };
-}
+} // namespace tape_sort
 
 #endif // TAPESORT_SRC_GENERATOR_HPP

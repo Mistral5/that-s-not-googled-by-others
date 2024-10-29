@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_EXCEPTIONS_HPP
-#define TAPESORT_SRC_EXCEPTIONS_HPP
+#ifndef SRC_EXCEPTIONS_HPP
+#define SRC_EXCEPTIONS_HPP
 
 #include <exception>
 
@@ -16,4 +16,4 @@ private:
     std::string message_;
 };
 
-#endif // TAPESORT_SRC_EXCEPTIONS_HPP
+#endif // SRC_EXCEPTIONS_HPP
