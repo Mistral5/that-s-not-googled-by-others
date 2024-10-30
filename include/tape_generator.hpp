@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_GENERATOR_HPP
-#define TAPESORT_SRC_GENERATOR_HPP
+#ifndef TAPESORT_INCLUDE_TAPEGENERATOR_HPP_
+#define TAPESORT_INCLUDE_TAPEGENERATOR_HPP_
 
 #include <cinttypes>
 #include <iostream>
@@ -20,4 +20,4 @@ class TapeGenerator {
 };
 }  // namespace tape_sort
 
-#endif  // TAPESORT_SRC_GENERATOR_HPP
+#endif  // TAPESORT_INCLUDE_TAPEGENERATOR_HPP_

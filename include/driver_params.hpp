@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_DRIVER_PARAMS_HPP
-#define TAPESORT_SRC_DRIVER_PARAMS_HPP
+#ifndef TAPESORT_INCLUDE_DRIVERPARAMS_HPP_
+#define TAPESORT_INCLUDE_DRIVERPARAMS_HPP_
 
 #include <cinttypes>
 
@@ -28,4 +28,4 @@ class DriverParams {
 };
 }  // namespace tape_sort
 
-#endif  // TAPESORT_SRC_DRIVER_PARAMS_HPP
+#endif  // TAPESORT_INCLUDE_DRIVERPARAMS_HPP_

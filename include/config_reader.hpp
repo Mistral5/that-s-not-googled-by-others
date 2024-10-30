@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_CONFIG_READER_HPP
-#define TAPESORT_SRC_CONFIG_READER_HPP
+#ifndef TAPESORT_INCLUDE_CONFIGREADER_HPP_
+#define TAPESORT_INCLUDE_CONFIGREADER_HPP_
 
 #include <fstream>
 #include <iostream>
@@ -28,4 +28,4 @@ class ConfigReader {
   nlohmann::json config_json_;
 };
 
-#endif  // TAPESORT_SRC_CONFIG_READER_HPP
+#endif  // TAPESORT_INCLUDE_CONFIGREADER_HPP_

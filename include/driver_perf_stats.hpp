@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_DRIVER_PERF_STATS_HPP
-#define TAPESORT_SRC_DRIVER_PERF_STATS_HPP
+#ifndef TAPESORT_INCLUDE_DRIVERPERFSTATS_HPP_
+#define TAPESORT_INCLUDE_DRIVERPERFSTATS_HPP_
 
 #include <fstream>
 #include <iostream>
@@ -22,4 +22,4 @@ class DriverPerfStats {
 };
 }  // namespace tape_sort
 
-#endif  // TAPESORT_SRC_DRIVER_PERF_STATS_HPP
+#endif  // TAPESORT_INCLUDE_DRIVERPERFSTATS_HPP_

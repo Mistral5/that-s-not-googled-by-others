@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_TAPE_HPP
-#define TAPESORT_SRC_TAPE_HPP
+#ifndef TAPESORT_INCLUDE_TAPE_HPP_
+#define TAPESORT_INCLUDE_TAPE_HPP_
 
 #include <cinttypes>
 #include <fstream>
@@ -34,4 +34,4 @@ class TapeFactory : public ITapeFactory {
 };
 }  // namespace tape_sort
 
-#endif  // TAPESORT_SRC_TAPE_HPP
+#endif  // TAPESORT_INCLUDE_TAPE_HPP_

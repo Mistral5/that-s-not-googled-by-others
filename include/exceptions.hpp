@@ -1,5 +1,5 @@
-#ifndef SRC_EXCEPTIONS_HPP
-#define SRC_EXCEPTIONS_HPP
+#ifndef TAPESORT_INCLUDE_EXCEPTIONS_HPP_
+#define TAPESORT_INCLUDE_EXCEPTIONS_HPP_
 
 #include <exception>
 
@@ -15,4 +15,4 @@ class AssociatedFileException : public std::exception {
   std::string message_;
 };
 
-#endif  // SRC_EXCEPTIONS_HPP
+#endif  // TAPESORT_INCLUDE_EXCEPTIONS_HPP_

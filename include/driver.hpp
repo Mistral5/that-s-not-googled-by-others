@@ -1,5 +1,5 @@
-#ifndef TAPESORT_SRC_DRIVER_HPP
-#define TAPESORT_SRC_DRIVER_HPP
+#ifndef TAPESORT_INCLUDE_DRIVER_HPP_
+#define TAPESORT_INCLUDE_DRIVER_HPP_
 
 #include <chrono>
 #include <cinttypes>
@@ -60,4 +60,4 @@ class Driver {
 };
 }  // namespace tape_sort
 
-#endif  // TAPESORT_SRC_DRIVER_HPP
+#endif  // TAPESORT_INCLUDE_DRIVER_HPP_
