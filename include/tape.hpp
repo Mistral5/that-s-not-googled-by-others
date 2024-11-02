@@ -5,7 +5,9 @@
 #include <fstream>
 
 #include "config_reader.hpp"
+#include "filesystem"
 #include "i_tape.hpp"
+#include "tape_generator.hpp"
 
 namespace tape_sort {
 class Tape : public ITape {
@@ -29,8 +31,14 @@ class Tape : public ITape {
 
 class TapeFactory : public ITapeFactory {
  public:
-  std::shared_ptr<ITape> Create(const std::string&,
-                                std::ios_base::openmode) override;
+  TapeFactory(const ConfigReader& config);
+  TapeFactory(std::string temp_file_dir_name = "tmp/",
+              std::string temp_file_format = ".txt");
+  std::shared_ptr<ITape> Create(const std::string&) override;
+
+ private:
+  const std::string kTempFileDirName;
+  const std::string kTempFileFormat;
 };
 }  // namespace tape_sort
 

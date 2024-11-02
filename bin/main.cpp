@@ -21,7 +21,7 @@ int main(int argv, char** argc) {
     tape_sort::Tape input_tape(argc[1]);
     tape_sort::Tape output_tape(argc[2], std::ios::trunc);
 
-    tape_sort::TapeFactory factory;
+    tape_sort::TapeFactory factory(config);
     tape_sort::Driver tape_driver(config, factory);
 
     tape_driver.Sort(output_tape, input_tape);

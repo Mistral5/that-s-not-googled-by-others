@@ -27,8 +27,7 @@ class ITape {
 
 class ITapeFactory {
  public:
-  virtual std::shared_ptr<ITape> Create(const std::string&,
-                                        std::ios_base::openmode) = 0;
+  virtual std::shared_ptr<ITape> Create(const std::string&) = 0;
 
   virtual ~ITapeFactory() {}
 };

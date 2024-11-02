@@ -1,4 +1,6 @@
 {
+    "temp_file_dir_name": "tmp/",
+    "temp_file_format": ".txt",
     "tape_delays": {
         "unit": "millisecond",
         "item_write": 0,
@@ -7,8 +9,6 @@
         "step_shift": 0
     },
     "driver_settings": {
-        "max_elem_number": 2048,
-        "temp_file_dir_name": "tmp/",
-        "temp_file_format": ".txt"
+        "max_bytes_for_elements": 4096
     }
 }

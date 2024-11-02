@@ -43,7 +43,31 @@ bool tape_sort::Tape::good() {
   return stream_.good() && symbol != '\n' && symbol != EOF;
 }
 
+tape_sort::TapeFactory::TapeFactory(const ConfigReader& config)
+    : kTempFileDirName(config.get<std::string>("temp_file_dir_name")),
+      kTempFileFormat(config.get<std::string>("temp_file_format")) {
+  std::filesystem::create_directory(kTempFileDirName);
+
+  if (!std::filesystem::exists(kTempFileDirName))
+    throw TempDirNotExistException{kTempFileDirName};
+}
+
+tape_sort::TapeFactory::TapeFactory(std::string temp_file_dir_name,
+                                    std::string temp_file_format)
+    : kTempFileDirName(temp_file_dir_name), kTempFileFormat(temp_file_format) {
+  std::filesystem::create_directory(kTempFileDirName);
+
+  if (!std::filesystem::exists(kTempFileDirName))
+    throw TempDirNotExistException{kTempFileDirName};
+}
+
 std::shared_ptr<tape_sort::ITape> tape_sort::TapeFactory::Create(
-    const std::string& file_name, std::ios_base::openmode mode) {
-  return std::shared_ptr<ITape>(std::make_shared<Tape>(file_name, mode));
+    const std::string& file_name) {
+  std::string tape_name(kTempFileDirName + file_name + kTempFileFormat);
+  std::ofstream stream(tape_name, std::ios::trunc);
+
+  if (!stream.is_open()) throw AssociatedFileException{file_name};
+
+  return std::shared_ptr<ITape>(
+      std::make_shared<Tape>(tape_name, std::ios::trunc));
 }

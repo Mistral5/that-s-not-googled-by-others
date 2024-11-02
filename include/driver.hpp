@@ -33,28 +33,21 @@ class Driver {
   void StepForward(ITape&);
 
   void Sort(ITape&, ITape&);
-  void ToTape(ITape&, ITape&, size_t);
   void ToTape(ITape&, std::vector<int32_t>&);
 
   using AdvancedTape =
       std::pair<std::shared_ptr<tape_sort::ITape>, tape_sort::TapeParams>;
 
-  struct CompareTapeBySize {
-    bool operator()(const AdvancedTape&, const AdvancedTape&);
-  };
-
-  using AdvancedTapeQueue =
-      std::priority_queue<AdvancedTape, std::vector<AdvancedTape>,
-                          tape_sort::Driver::CompareTapeBySize>;
+  using AdvancedTapeQueue = std::vector<AdvancedTape>;
 
  private:
   AdvancedTapeQueue CreateTapePriorityQueue(ITape&);
   void MergeSort(AdvancedTapeQueue&);
 
-  void Merge(ITape&, AdvancedTape&, AdvancedTape&);
+  void Merge(ITape&, std::vector<AdvancedTape>&);
   std::string TapeTitleCreate(TapeParams&);
 
-  const DriverParams driver_params_;
+  const DriverParams kDriverParams;
   DriverPerfStats drive_perf_stats_;
   ITapeFactory& factory_;
 };
